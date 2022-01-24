@@ -128,6 +128,35 @@
           </div>
       </div>
 
+      <!-- client section -->
+      <div class="client">
+          <div class="container">
+              <h2 class="section-title">Why People Talk About <span>MaxCoach</span>?</h2>
+              <div class="testimonial">
+                  <div class="left-side-img">
+                    <img class="shape-img" src="../assets/images/maxcoach-shape-05-150x150.png" alt="">
+                    <div class="testimonial__img">
+                        <img src="../assets/images/testimonial-avata-02.jpg" alt="">
+                    </div>
+                  </div>
+                  <div class="testimonial__desc">
+                      <p class="cit">I am free to learn at my own pace, follow my own schedule and choose the subject I like. Great study portal for people like me.</p>
+                      <h4>Mina Hollage</h4>
+                      <p>/ Freelancer</p>
+                  </div>
+              </div>
+              <div class="client-list">
+                  <ul>
+                      <li><img src="../assets/images/client-logo-colored-01.png" alt=""></li>
+                      <li><img src="../assets/images/client-logo-colored-02.png" alt=""></li>
+                      <li><img src="../assets/images/client-logo-colored-03.png" alt=""></li>
+                      <li><img src="../assets/images/client-logo-colored-04.png" alt=""></li>
+                      <li><img src="../assets/images/client-logo-colored-05.png" alt=""></li>
+                      <li><img src="../assets/images/client-logo-colored-06.png" alt=""></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
       
   </main>
 </template>
@@ -368,7 +397,7 @@ export default {
     .courses {
         width: 100%;
         padding-top: 5rem;
-        background-color: #8baeec2d;
+        background-color: #e7eff7;
 
         .container {
             text-align: center;
@@ -385,13 +414,13 @@ export default {
 
             .main-btn {
             
-            margin-top: 2.5rem;
-            margin-bottom: 4rem; 
-            padding: 1rem 4rem;
-            i {
-                vertical-align: middle;
+                margin-top: 2.5rem;
+                margin-bottom: 4rem; 
+                padding: 1rem 4rem;
+                i {
+                    vertical-align: middle;
+                }
             }
-        }
         }
         
         .courses-container {
@@ -465,6 +494,97 @@ export default {
 
         
 
+    }
+
+    .client {
+        width: 100%;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        background-color: white;
+
+        .container {
+            & h2 {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 4rem;
+            }
+
+            .testimonial {
+                width: 100%;
+                display: flex;
+                // justify-content: space-around;
+                align-items: center;
+
+                .left-side-img {
+                    position: relative;
+                    width: 30%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 2rem;
+
+                    .testimonial__img {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 250px;
+                        height: 250px;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        img {
+                            position: relative;
+                            width: 180%;
+                        }
+                    }
+
+                    .shape-img {
+                        position: absolute;
+                        bottom: -50px;
+                        right: 20%;
+                    }
+                }
+
+                
+
+                .testimonial__desc {
+                    width: 60%;
+                    .cit {
+                        font-size: 2rem;
+                    }
+
+                    h4 {
+                        text-transform: uppercase;
+                        margin-top: 2rem;
+                        margin-bottom: 1rem;
+                    }
+                    p:not(.cit) {
+                        color: #9da1aa;
+                        font-size: 0.8rem;
+                    }
+                    
+                }
+            }
+
+            .client-list {
+                ul {
+                    width: 100%;
+                    margin-top: 7rem;
+                    display: flex;
+
+                    li {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: calc(100% / 6);
+
+                        img {
+                        }
+                    }
+                }
+            }
+             
+        }
     }
 
 </style>

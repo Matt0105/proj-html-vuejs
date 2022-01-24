@@ -77,6 +77,7 @@ export default {
 
         h4 {
             margin-top: 3rem;
+            font-weight: 600;
         }
 
         .links-container {

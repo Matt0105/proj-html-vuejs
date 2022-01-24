@@ -1,12 +1,12 @@
 <template>
   <header>
-      <div class="header-container">
+      <div class="container">
         <NavBar />
         <div class="jumbo">
             <div class="head-jumbo">
                 <h1>Learn At Your Own Pace!</h1>
                 <p>Get teamed Up with people of the same will.</p>
-                <button>Get started for free</button>
+                <button class="main-btn" >Get started for free</button>
             </div>
             
             <div class="jumbo-imgs">
@@ -43,10 +43,8 @@ export default {
         background-color: #1f2154;
         color: white;
     }
-    .header-container {
-        width: 90%;
-        height: 100%;
-        margin: 0 auto;
+    .container {
+        
 
         .jumbo {
             position: relative;
@@ -69,12 +67,7 @@ export default {
 
             button {
                 margin-top: 1.5rem;
-                padding: 1rem;
-                border: none;
-                border-radius: 5px;
-                color: white;
-                font-weight: 600;
-                background-color: #27ab94;
+                
             }
 
             .jumbo-imgs {

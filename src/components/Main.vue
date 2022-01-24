@@ -83,8 +83,8 @@
 
               </div>
               <div class="desc-side">
-                  <h3>Together we can create</h3>
-                  <h2>Services We <span>Can Provide</span> For My Clients.</h2>
+                  <h3 class="section-desc-title">Together we can create</h3>
+                  <h2 class="section-title">Services We <span>Can Provide</span> For My Clients.</h2>
                   <ul>
                       <li><i class="fas fa-check"></i>Select & customize courses to your preferences</li>
                       <li><i class="fas fa-check"></i>Change the tutor and make arrangements</li>
@@ -94,14 +94,102 @@
                   <button class="main-btn">Get started for free</button>
               </div>
           </div>
-
       </div>
+
+           <!-- courses list -->
+
+      <div class="courses">
+          <div class="container">
+            <h3 class="section-desc-title">Choose a course to get started</h3>
+            <h2 class="section-title" >Latest Featured <span>Courses</span></h2>
+
+            <div class="courses-container">
+
+                <div 
+                    class="course-card"
+                    v-for="(course, index) in courses"
+                    :key="index"
+                >
+                    <div class="course-card__img">
+                        <img :src="getImg(course)" :alt="course.title">
+                    </div>
+                    <div class="course-card__desc">
+                        <span v-if="course.price" class="dollars">${{course.price}}<span class="cents">.00</span> </span>
+                        <span class="dollars" v-else>Free</span>
+                        <p>{{course.title}}</p>
+                        <div class="course-info">
+                            <span><i class="far fa-copy"></i> {{course.lessons}} Lessons</span>
+                            <span><i class="far fa-user"></i> {{course.students}} Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="main-btn">View all courses <i class="fas fa-long-arrow-alt-right"></i></button>
+          </div>
+      </div>
+
+      
   </main>
 </template>
 
 <script>
 export default {
     name: "Main",
+    data() {
+        return {
+            courses: [
+                {
+                    price: 40,
+                    title: "Learning to Write as a Professional Author",
+                    lessons: 20,
+                    students: 50,
+                    src: "course-02-480x298.jpg"
+                },
+                {
+                    price: null,
+                    title: "customer-centric Info-Tech Strategies",
+                    lessons: 24,
+                    students: 769,
+                    src: "stock-full-hd-03-480x298.jpg"
+                },
+                {
+                    price: 19,
+                    title: "Open Programming Courses for Everyone: Python",
+                    lessons: 17,
+                    students: 62,
+                    src: "stock-full-hd-04-480x298.jpg"
+                },
+                {
+                    price: 26,
+                    title: "Academic Listening and Note-taking",
+                    lessons: 14,
+                    students: 67,
+                    src: "stock-full-hd-06-480x298.jpg"
+                },
+                {
+                    price: 39,
+                    title: "Master jQuery in a Short Period of Time",
+                    lessons: 6,
+                    students: 51,
+                    src: "course-featured-image-01-480x298.jpg"
+                },
+                {
+                    price: 59,
+                    title: "Introducing to Javascript for Beginners",
+                    lessons: 14,
+                    students: 76,
+                    src: "stock-full-hd-05-480x298.jpg"
+                },
+
+                ]
+        }
+    },
+
+    methods: {
+        getImg(value) {
+            return require("../assets/images/" + value.src);
+        }
+    }
 }
 </script>
 
@@ -112,7 +200,29 @@ export default {
         background-image: url(../assets/images/background-pattern-grid-line.png);
         width: 100%;
         padding-top: 15rem;
-        padding-bottom: 10rem;
+        // padding-bottom: 10rem;
+    }
+
+    h3.section-desc-title {
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #616865;
+        letter-spacing: 1px;
+    }
+
+    h2.section-title {
+        width: 60%;
+        margin-bottom: 2rem;
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 55px;
+
+        span {
+            color: #1fad96;
+            font-weight: 400;
+        }
     }
 
     .motto-data {
@@ -225,6 +335,7 @@ export default {
             .second-col {
                 position: relative;
                 top: 80px;
+                margin-bottom: 7rem;
                 .card {
                     align-items: center;
                 }
@@ -233,27 +344,6 @@ export default {
 
         .desc-side {
             padding-left: 4rem;
-
-            h3 {
-                margin-bottom: 1rem;
-                text-transform: uppercase;
-                font-size: 1rem;
-                font-weight: 500;
-                color: #616865;
-                letter-spacing: 1px;
-            }
-
-            h2 {
-                margin-bottom: 2rem;
-                font-size: 3rem;
-                font-weight: 600;
-                line-height: 55px;
-
-                span {
-                    color: #1fad96;
-                    font-weight: 400;
-                }
-            }
 
             li {
                 color: #616865;
@@ -273,6 +363,108 @@ export default {
         }
 
         
+    }
+
+    .courses {
+        width: 100%;
+        padding-top: 5rem;
+        background-color: #8baeec2d;
+
+        .container {
+            text-align: center;
+            & h2 {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+            & h3 {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 1rem;
+            }   
+
+            .main-btn {
+            
+            margin-top: 2.5rem;
+            margin-bottom: 4rem; 
+            padding: 1rem 4rem;
+            i {
+                vertical-align: middle;
+            }
+        }
+        }
+        
+        .courses-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .course-card {
+                display: flex;
+                width: calc(100% / 2);
+                padding: 1rem;
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: white;
+                    cursor: pointer;
+                }
+
+                .course-card__img {
+                    max-width: 150px;
+                    max-height: 150px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 170%;
+                    }
+                }
+
+                .course-card__desc {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    height: 100%;
+                    margin-left: 2rem;
+
+                    .dollars, .cents {
+                        color: #1fad96;
+                        font-weight: 700;
+                    }
+                    .dollars {
+                        font-size: 1.5rem;
+                    }
+                    .cents {
+                        font-size: 1rem;
+                    }
+
+                    p {
+                        margin: 0.5rem 0;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                        text-align: left;
+                    }
+
+                    .course-info {
+                        font-size: 0.7rem;
+                        color:#6c6c6c;
+
+                        span {
+                            margin-right: 1.5rem;
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        
+
     }
 
 </style>

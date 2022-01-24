@@ -64,7 +64,6 @@ export default {
 @import "../assets/scss/partials/_commons.scss";
 
     footer {
-        margin-top: 10rem;
         background-color: #f6f3f6;
 
         p, li, a {

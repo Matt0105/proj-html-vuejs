@@ -83,7 +83,15 @@
 
               </div>
               <div class="desc-side">
-                  
+                  <h3>Together we can create</h3>
+                  <h2>Services We <span>Can Provide</span> For My Clients.</h2>
+                  <ul>
+                      <li><i class="fas fa-check"></i>Select & customize courses to your preferences</li>
+                      <li><i class="fas fa-check"></i>Change the tutor and make arrangements</li>
+                      <li><i class="fas fa-check"></i>Partecipate in events to join others</li>
+                      <li><i class="fas fa-check"></i>Get the desidered certificate delivered at house</li>
+                  </ul>
+                  <button class="main-btn">Get started for free</button>
               </div>
           </div>
 
@@ -103,7 +111,8 @@ export default {
     main {
         background-image: url(../assets/images/background-pattern-grid-line.png);
         width: 100%;
-        margin-top: 15rem;
+        padding-top: 15rem;
+        padding-bottom: 10rem;
     }
 
     .motto-data {
@@ -167,11 +176,12 @@ export default {
     }
 
     .services-container {
-
+        display: flex;
+        align-items: center;
         margin-top: 7rem;
 
         .card-side {
-            width: 50%;
+            width: 60%;
             display: flex;
             
             .card {
@@ -218,6 +228,47 @@ export default {
                 .card {
                     align-items: center;
                 }
+            }
+        }
+
+        .desc-side {
+            padding-left: 4rem;
+
+            h3 {
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: 500;
+                color: #616865;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                margin-bottom: 2rem;
+                font-size: 3rem;
+                font-weight: 600;
+                line-height: 55px;
+
+                span {
+                    color: #1fad96;
+                    font-weight: 400;
+                }
+            }
+
+            li {
+                color: #616865;
+                margin: 0.8rem 0;
+                font-size: 0.9rem;
+
+                i {
+                    color: #1fad96;
+                    margin-right: 0.8rem;
+                    font-size: 1.1rem;
+                }
+            }
+
+            .main-btn {
+                margin-top: 2rem;
             }
         }
 

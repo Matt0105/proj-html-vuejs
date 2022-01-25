@@ -7,6 +7,14 @@
                   <p class="motto">Let passion and determination be the guide along the way and develop at your own pace that's comfortable.</p>
                   <h4>Fannie Moreno</h4>
                   <p class="ceo">/Founder & CEO</p>
+                  <div class="dot small a"></div>
+                  <div class="dot small b"></div>
+                  <div class="dot small c"></div>
+                  <div class="dot medium d"></div>
+                  <div class="dot medium e"></div>
+                  <div class="dot big f"></div>
+                  <div class="dot big g"></div>
+                  <div class="dot big h"></div>
               </div>
 
               <div class="data-container">
@@ -224,6 +232,12 @@
 
               <div class="bottom-jumbo-container">
                 <img class="bottom-jumbo" src="../assets/images/home-6-services-image.png" alt="">
+                <div class="dot big a-2"></div>
+                  <div class="dot small b-2"></div>
+                  <div class="dot small c-2"></div>
+                  <div class="dot medium d-2"></div>
+                  <div class="dot big e-2"></div>
+                  <div class="dot medium f-2"></div>
               </div>
           </div>
       </div>
@@ -346,6 +360,26 @@ export default {
         // padding-bottom: 10rem;
     }
 
+    .dot {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.6;
+    }
+    .small {
+        width: 40px;
+        height: 40px;
+    }
+    .medium {
+        width: 50px;
+        height: 50px;
+    }
+    .big {
+        width: 60px;
+        height: 60px;
+    }
+    
+    
+
     h3.section-desc-title {
         margin-bottom: 1rem;
         text-transform: uppercase;
@@ -374,7 +408,48 @@ export default {
         .motto-container {
             width: 100%;
             text-align: center;
+            position: relative;
 
+            .a {
+                top: 100px;
+                left: 50px;
+                background-color: #e65e1f;
+            }
+            .b {
+                top: 60%;
+                right: 10%;
+                background-color: #2531e0;
+            }
+            .c {
+                top: -25%;
+                left: 40%;
+                background-color: #7355e7;
+            }
+            .d {
+                top: -30%;
+                left: 100%;
+                background-color: #27ab94;
+            }
+            .e {
+                top: 30%;
+                right: -10%;
+                background-color: #e25a6d;
+            }
+            .f {
+                top: 100%;
+                right: -10%;
+                border: 10px solid #f57e60;
+            }
+            .g {
+                top: 90%;
+                left: -10%;
+                background-color: #e2a957;
+            }
+            .h {
+                top: -30%;
+                left: 0;
+                border: 7px solid #27ab94;
+            }
             
             .motto {
                 width: 55%;
@@ -775,6 +850,7 @@ export default {
                 gap: 20px;
                 li {
                     width: calc(100% / 4);
+
                     .help-item-container {
                         text-align: left;
 
@@ -796,11 +872,47 @@ export default {
                 }
             }
 
-            .bottom-jumbo {
-                width: 100%;
-                margin-top: 7rem;
-                transform: translateY(40px);
+            .bottom-jumbo-container {
+                position: relative;
+
+                .a-2 { 
+                    top: 100px;
+                    left: 50px;
+                    border: 7px solid #27ab94;
+                }
+                .b-2 {
+                    top: 80%;
+                    left: -10%;
+                    background-color: #e65e1f;
+                }
+                .c-2 { 
+                    top: 125%;
+                    right: -10%;
+                    background-color: #7355e7;
+                }
+                .d-2 { 
+                    top: 30%;
+                    left: 100%;
+                    background-color: #27ab94;
+                }
+                .e-2 { 
+                    top: 130%;
+                    left: -10%;
+                    background-color: #e2a957;
+                }
+                .f-2 { 
+                    top: 100%;
+                    right: 0%;
+                    background-color: #b45165;
+                }
+
+                .bottom-jumbo {
+                    width: 100%;
+                    margin-top: 7rem;
+                    transform: translateY(40px);
+                }
             }
+            
         }
     }
 

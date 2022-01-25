@@ -118,8 +118,8 @@
                         <span class="dollars" v-else>Free</span>
                         <p>{{course.title}}</p>
                         <div class="course-info">
-                            <span><i class="far fa-copy"></i> {{course.lessons}} Lessons</span>
-                            <span><i class="far fa-user"></i> {{course.students}} Students</span>
+                            <span class="item-info"><i class="far fa-copy"></i> {{course.lessons}} Lessons</span>
+                            <span class="item-info"><i class="far fa-user"></i> {{course.students}} Students</span>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,34 @@
               </div>
           </div>
       </div>
-      
+
+      <!-- blog -->
+      <div class="blog">
+          <div class="container">
+              <h3 class="section-desc-title">Enjoy reading on maxcouach</h3>
+              <h2 class="section-title">Latest on <span>Our Blogs</span></h2>
+
+              <div class="blog-list">
+                  <ul>
+                      <li
+                        v-for="(blog, index) in blogs"
+                        :key="index"  
+                      >
+                          <div class="blog-item">
+                              <img :src="getImg(blog)" :alt="blog.title">
+                              <h3 class="section-desc-title">{{blog.theme}}</h3>
+                              <h2>{{blog.title}}</h2>
+                              <span class="item-info"><i class="far fa-calendar"></i> {{blog.date.month}} {{blog.date.day}}, {{blog.date.year}}</span>
+                              <span class="item-info"><i class="far fa-eye"></i> {{blog.views}} views</span>
+                          </div>
+                          
+                      </li>
+                      
+                  </ul>
+              </div>
+          </div>
+      </div>
+
   </main>
 </template>
 
@@ -210,7 +237,43 @@ export default {
                     src: "stock-full-hd-05-480x298.jpg"
                 },
 
-                ]
+            ],
+
+            blogs: [
+                {
+                    src: "artist-blog-03-480x325.jpeg",
+                    theme: "artist",
+                    title: "Brush Strokes Energize Trees in Paintings",
+                    date: {
+                        day: "15",
+                        month: "May",
+                        year: "2020"
+                    },
+                    views: 688
+                },
+                {
+                    src: "artist-blog-01-480x325.jpg",
+                    theme: "artist",
+                    title: "Pocket-Sized Notebooks Hold Miniature Paintings",
+                    date: {
+                        day: "15",
+                        month: "May",
+                        year: "2020"
+                    },
+                    views: 603
+                },
+                {
+                    src: "artist-blog-02-480x325.jpg",
+                    theme: "artist",
+                    title: "Connection Between Self-Portraits and Identity",
+                    date: {
+                        day: "15",
+                        month: "May",
+                        year: "2020"
+                    },
+                    views: 397
+                },
+            ]
         }
     },
 
@@ -478,15 +541,6 @@ export default {
                         font-size: 1.1rem;
                         text-align: left;
                     }
-
-                    .course-info {
-                        font-size: 0.7rem;
-                        color:#6c6c6c;
-
-                        span {
-                            margin-right: 1.5rem;
-                        }
-                    }
                     
                 }
             }
@@ -494,6 +548,12 @@ export default {
 
         
 
+    }
+
+    .item-info {
+        margin-right: 1.5rem;
+        font-size: 0.8rem;
+        color:#6c6c6c;
     }
 
     .client {
@@ -578,13 +638,65 @@ export default {
                         align-items: center;
                         width: calc(100% / 6);
 
-                        img {
-                        }
                     }
                 }
             }
              
         }
+    }
+
+    .blog {
+        width: 100%;
+        padding-top: 6rem;
+        background-color: #f6f3f6;
+
+        .container {
+            text-align: center;
+
+            & .section-title {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+            & .section-desc-title {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .blog-list {
+                width: 100%;
+
+                ul {
+                    display: flex;
+                    gap: 30px;
+                    li {
+                        width: calc(100% / 3);
+
+                        .blog-item {
+                            text-align: left;
+
+                            h2, h3 {
+                                text-align: left;
+                            }
+                            h2 {
+                                margin-bottom: 1.5rem;
+                                font-weight: 600;
+                            }
+                            h3 {
+                                margin-top: 1rem;
+                                margin-bottom: 0.5rem;
+                            }
+                            img {
+                                width: 100%;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }   
     }
 
 </style>

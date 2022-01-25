@@ -9,7 +9,8 @@
                 <button class="main-btn" >Get started for free</button>
             </div>
             
-            <div class="jumbo-imgs">
+            <!-- provare a inserire le due immagini all'interno di jumbo-imgs e spostarle con un position absolute -->
+            <div class="jumbo-imgs"> 
                 <img class="secondary-first" src="../assets/images/home-6-hero-left-person.png" alt="">
                 <div class="jumbo-poster">
                     <img src="../assets/images/home-6-hero-poster-final.jpg" alt="">

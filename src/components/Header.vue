@@ -11,12 +11,12 @@
             
             <!-- provare a inserire le due immagini all'interno di jumbo-imgs e spostarle con un position absolute -->
             <div class="jumbo-imgs"> 
-                <img class="secondary-first" src="../assets/images/home-6-hero-left-person.png" alt="">
                 <div class="jumbo-poster">
-                    <img src="../assets/images/home-6-hero-poster-final.jpg" alt="">
+                <img class="secondary-first" src="../assets/images/home-6-hero-left-person.png" alt="">
+                    <img class="preview" src="../assets/images/home-6-hero-poster-final.jpg" alt="">
                     <img class="yt-logo" src="../assets/images/icon-youtube-play.png" alt="">
-                </div>
                 <img class="secondary-second" src="../assets/images/home-6-hero-right-person-195x300.png" alt="">
+                </div>
             </div>
         </div>
       </div>
@@ -44,6 +44,7 @@ export default {
 @import "../assets/scss/partials/_commons.scss";
 
     header {
+        position: relative;
         width: 100%;
         background-color: #1f2154;
         color: white;
@@ -58,12 +59,15 @@ export default {
             position: absolute;
             bottom:0px;
             opacity: 0.07;
+
         }
         #wave3 {
             position: absolute;
-            bottom: 100px;
+            bottom: 10px;
             opacity: 0.02;
         }
+
+
     }
     .container {
         
@@ -75,7 +79,7 @@ export default {
             // margin-top: 4rem;
             overflow: hidden;
             transform: translateY(100px);
-
+            z-index: 101;
 
             h1 {
                 font-weight: 500;
@@ -102,6 +106,8 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                z-index: 110;
+
 
                 .jumbo-poster {
                     position: relative;
@@ -115,9 +121,22 @@ export default {
                     margin-top: 5rem;
                     box-shadow: 2px 10px 10px rgba(128, 128, 128, 0.288);
 
-                    img {
+                    .preview {
                         width: 95%;
                         margin: 1rem 0;
+                    }
+
+                    .secondary-first {
+                        position: absolute;
+                        bottom: 0;
+                        // left: -350px;
+                        left: -50%;
+                        z-index: -100;
+                    }
+                    .secondary-second {
+                        position: absolute;
+                        bottom: -150px;
+                        right: -200px;
                     }
 
                     .yt-logo {
@@ -129,17 +148,17 @@ export default {
                     }
                 }
 
-                .secondary-first, .secondary-second {
-                    position: absolute;
-                }
-                .secondary-first {
-                    left: 80px;
-                    bottom: 0;
-                }
-                .secondary-second {
-                    right: 14%;
-                    bottom: -140px;
-                }
+                // .secondary-first, .secondary-second {
+                //     position: absolute;
+                // }
+                // .secondary-first {
+                //     left: 80px;
+                //     bottom: 0;
+                // }
+                // .secondary-second {
+                //     right: 14%;
+                //     bottom: -140px;
+                // }
 
 
             }

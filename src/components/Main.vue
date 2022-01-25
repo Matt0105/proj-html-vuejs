@@ -185,6 +185,57 @@
           </div>
       </div>
 
+      <!-- maxcoach info -->
+      <div class="help">
+          <div class="container">
+              <h3 class="section-desc-title">Wanna transform your life?</h3>
+              <h2 class="section-title">Glad to <span>Help You </span>Learn</h2>
+
+              <ul>
+                  <li>
+                      <div class="help-item-container">
+                          <img src="../assets/images/flag-svgrepo-com.svg" alt="">
+                          <h3>Idea Discussion</h3>
+                          <p>Get teamed up with the specialists who work and teach coding for years at famous universities.</p>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="help-item-container">
+                          <img src="../assets/images/gear-svgrepo-com.svg" alt="">
+                          <h3>Web Development</h3>
+                          <p>Learn to start building a webpage form scratch. You decide your own pace, course and speed.</p>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="help-item-container">
+                          <img src="../assets/images/life-buoy-svgrepo-com.svg" alt="">
+                          <h3>System Administration</h3>
+                          <p>Learners are encouraged to study the mechanism and structure of system administration.</p>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="help-item-container">
+                          <img src="../assets/images/monitor-svgrepo-com.svg" alt="">
+                          <h3>Graphic Design</h3>
+                          <p>Have a passion for graphics and arts? Show your talents with confidence and self-assertiveness</p>
+                      </div>
+                  </li>
+              </ul>
+
+              <div class="bottom-jumbo-container">
+                <img class="bottom-jumbo" src="../assets/images/home-6-services-image.png" alt="">
+              </div>
+          </div>
+      </div>
+
+      <!-- cta -->
+      <div class="cta">
+          <div class="container">
+              <h2 class="section-title">Start today for getting <span>Online Certification</span></h2>
+              <h2>you can be your own guiding star with our help!</h2>
+              <button class="main-btn">Get started now</button>
+          </div>
+      </div>
   </main>
 </template>
 
@@ -648,6 +699,7 @@ export default {
     .blog {
         width: 100%;
         padding-top: 6rem;
+        padding-bottom: 6rem;
         background-color: #f6f3f6;
 
         .container {
@@ -697,6 +749,85 @@ export default {
             }
 
         }   
+    }
+
+    .help {
+        padding-top: 6rem;
+        background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,243,246,1) 100%);
+
+        .container {
+            text-align: center;
+
+            & .section-title {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+            & .section-desc-title {
+                margin: auto;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+                li {
+                    width: calc(100% / 4);
+                    .help-item-container {
+                        text-align: left;
+
+                        h3 {
+                            font-weight: 500;
+                            margin: 0.5rem 0;
+                        }
+
+                        p {
+                            width: 60%;
+                            font-size: 0.8rem;
+                            color: #6c6c6c
+                        }
+
+                        img {
+                            width: 50px;
+                        }
+                    }
+                }
+            }
+
+            .bottom-jumbo {
+                width: 100%;
+                margin-top: 7rem;
+                transform: translateY(40px);
+            }
+        }
+    }
+
+    .cta {
+        background-color: white;
+        padding-top: 7rem;
+        padding-bottom: 6rem;
+        .container {
+            text-align: center;
+
+            & .section-title {
+                margin: auto;
+                text-align: center;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+            }
+
+            h2 {
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            .main-btn {
+                padding: 1rem 4rem;
+            }
+            
+        }
     }
 
 </style>

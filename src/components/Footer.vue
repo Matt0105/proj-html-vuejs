@@ -70,7 +70,7 @@ export default {
             color: #616865;
             font-size: 0.8rem;
         }
-        p, li {
+        p:not(.copyright), li {
             margin: 0.8rem 0;
         }
 

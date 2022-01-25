@@ -44,7 +44,7 @@ export default {
             width: 20%;
             height: 100%;
             img {
-                width: 80%;
+                width: 70%;
             }
         }
         
@@ -57,13 +57,13 @@ export default {
             display: flex;
 
                 li {
-                    margin: 0 0.9rem;
+                    margin: 0 0.6rem;
 
                     a {
                         color: white;
 
                         i {
-                            font-size: 0.6rem;
+                            font-size: 0.5rem;
                             margin-left: 0.3rem;
                             vertical-align: middle;
                         }

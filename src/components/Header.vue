@@ -12,10 +12,10 @@
             <!-- provare a inserire le due immagini all'interno di jumbo-imgs e spostarle con un position absolute -->
             <div class="jumbo-imgs"> 
                 <div class="jumbo-poster">
-                <img class="secondary-first" src="../assets/images/home-6-hero-left-person.png" alt="">
+                    <img class="secondary-first" src="../assets/images/home-6-hero-left-person.png" alt="">
                     <img class="preview" src="../assets/images/home-6-hero-poster-final.jpg" alt="">
                     <img class="yt-logo" src="../assets/images/icon-youtube-play.png" alt="">
-                <img class="secondary-second" src="../assets/images/home-6-hero-right-person-195x300.png" alt="">
+                    <img class="secondary-second" src="../assets/images/home-6-hero-right-person-195x300.png" alt="">
                 </div>
             </div>
         </div>

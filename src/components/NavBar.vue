@@ -9,7 +9,12 @@
                   v-for="(link, index) in navLink"
                   :key="index"
                 ><a :href="link.src">{{link.label}}<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart myArea"></i></a></li>
+                <li>
+                    <a href="#"><i class="fas fa-shopping-cart myArea"></i></a>
+                    <div class="cart-items">
+                        <span>0</span>
+                    </div>
+                </li>
                 <li><a href="#"><i class="far fa-user-circle myArea"></i></a></li>
             </ul>
 
@@ -86,7 +91,29 @@ export default {
             display: flex;
 
                 li {
+                    position: relative;
                     margin: 0 0.6rem;
+
+                    .cart-items {
+                        position: absolute;
+                        top: -5px;
+                        right: -8px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: white;
+                        color: black;
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 50%;
+                        border: 1px solid #1f2154;
+
+                        span {
+                            font-size: 0.6rem;
+                            line-height: 15px;
+                            font-weight: 600;
+                        }
+                    }
 
                     a {
                         color: white;

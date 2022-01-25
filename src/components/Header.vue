@@ -2,6 +2,14 @@
   <header>
       <div class="container">
         <NavBar />
+        <div class="side-menu">
+            <ul>
+                <li><a href=""><img src="../assets/images/ruler-svgrepo-com.svg" alt=""></a></li>
+                <li><a href=""><img src="../assets/images/life-buoy-svgrepo-com.svg" alt=""></a></li>
+                <li><a href=""><img src="../assets/images/book-svgrepo-com.svg" alt=""></a></li>
+                <li><a href=""><img src="../assets/images/cart-svgrepo-com.svg" alt=""></a></li>
+            </ul>
+        </div>
         <div class="jumbo">
             <div class="head-jumbo">
                 <h1>Learn At Your Own Pace!</h1>
@@ -70,7 +78,27 @@ export default {
 
     }
     .container {
-        
+
+        .side-menu {
+            position: absolute;
+            top: 210px;
+            right: 0;
+            background-color: white;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            z-index: 150;
+            ul {
+                padding: 0.2rem;
+                li{
+                    padding: 0.3rem;
+                    img {
+                        width: 18px;
+                        cursor: pointer;
+
+                    }
+                }
+            }
+        }
 
         .jumbo {
             position: relative;

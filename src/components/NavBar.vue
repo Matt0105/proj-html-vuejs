@@ -118,6 +118,10 @@ export default {
                     a {
                         color: white;
 
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
                         i {
                             font-size: 0.5rem;
                             margin-left: 0.3rem;

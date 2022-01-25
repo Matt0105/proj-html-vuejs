@@ -5,12 +5,10 @@
         </div>
         <div class="navbar__menu-container">
             <ul class="navbar__menu">
-                <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">Pages<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">Courses<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">Features<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">Blog<i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="#">Shop<i class="fas fa-chevron-down"></i></a></li>
+                <li
+                  v-for="(link, index) in navLink"
+                  :key="index"
+                ><a :href="link.src">{{link.label}}<i class="fas fa-chevron-down"></i></a></li>
                 <li><a href="#"><i class="fas fa-shopping-cart myArea"></i></a></li>
                 <li><a href="#"><i class="far fa-user-circle myArea"></i></a></li>
             </ul>
@@ -25,7 +23,38 @@
 
 <script>
 export default {
-    name: "NavBar"
+    name: "NavBar",
+    data() {
+        return {
+            navLink: [
+                {
+                    label: "Home",
+                    src: "#"
+                },
+                {
+                    label: "Pages",
+                    src: "#"
+                },
+                {
+                    label: "Courses",
+                    src: "#"
+                },
+                {
+                    label: "Features",
+                    src: "#"
+                },
+                {
+                    label: "Blog",
+                    src: "#"
+                },
+                {
+                    label: "Shop",
+                    src: "#"
+                },
+            ] 
+            
+        }
+    }
 }
 </script>
 

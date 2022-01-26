@@ -29,8 +29,8 @@
                     <div class="second-col">
                         <ul>
                             <li><a href="">Success story</a></li>
-                            <li><a href=""></a>Courses</li>
-                            <li><a href=""></a>Contact us</li>
+                            <li><a href="">Courses</a></li>
+                            <li><a href="">Contact us</a></li>
                         </ul>
                     </div>
 
@@ -62,13 +62,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_variables.scss";
 
     footer {
-        background-color: #f6f3f6;
+        background-color: $hintRed;
 
         p, li, a {
-            color: #616865;
             font-size: 0.8rem;
+            color: $corduroy;
         }
         p:not(.copyright), li {
             margin: 0.8rem 0;
@@ -85,6 +86,7 @@ export default {
 
             .address {
                 width: 50%;
+
                 .social-links {
                     display: flex;
 
@@ -92,8 +94,8 @@ export default {
                         margin-right: 1.5rem;
 
                         a {
-                            color: #9da1aa;
                             font-size: 1.3rem;
+                            color: $grayChateau;
                         }
                     }
                 }
@@ -113,11 +115,9 @@ export default {
         }
 
         .copyright {
-            color: #9da1aa;
-            text-align: center;
             padding: 2rem 0 3rem 0;
+            text-align: center;
+            color: $grayChateau;
         }
-
-        
     }
 </style>

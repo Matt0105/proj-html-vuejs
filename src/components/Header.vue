@@ -50,22 +50,23 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_variables.scss";
 
     header {
         position: relative;
         width: 100%;
-        background-color: #1f2154;
+        background-color: $portGore;
         color: white;
 
         #wave {
             position: absolute;
-            bottom:0;
+            bottom: 0;
             left: 0;
             opacity: 0.05;
         }
         #wave2 {
             position: absolute;
-            bottom:0px;
+            bottom: 0;
             opacity: 0.07;
 
         }
@@ -74,123 +75,103 @@ export default {
             bottom: 10px;
             opacity: 0.02;
         }
-
-
     }
-    .container {
 
-        .side-menu {
-            position: absolute;
-            top: 210px;
-            right: 0;
-            background-color: white;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            z-index: 150;
-            ul {
-                padding: 0.2rem;
-                li{
-                    padding: 0.3rem;
-                    img {
-                        width: 18px;
-                        cursor: pointer;
+    .side-menu {
+        position: absolute;
+        top: 210px;
+        right: 0;
+        background-color: white;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        z-index: 150;
 
-                    }
+        ul {
+            padding: 0.2rem;
+
+            li{
+                padding: 0.3rem;
+
+                img {
+                    width: 18px;
+                    cursor: pointer;
                 }
             }
         }
+    }
 
-        .jumbo {
-            position: relative;
+    .jumbo {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        transform: translateY(100px);
+        z-index: 101;
+
+        h1 {
+            font-weight: 500;
+            font-size: 3rem;
+        }
+
+        p {
+            color: $hintRed;
+            opacity: 0.8;
+        }
+
+        button {
+            margin-top: 1.5rem;
+
+            &:hover {
+                background-color: white;
+                color: $jungleGreen;
+            }
+        }
+
+        .jumbo-imgs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            text-align: center;
-            // margin-top: 4rem;
-            overflow: hidden;
-            transform: translateY(100px);
-            z-index: 101;
+            z-index: 110;
 
-            h1 {
-                font-weight: 500;
-                font-size: 3rem;
-            }
-
-            p {
-                color: #f6f3f6;
-                opacity: 0.8;
-            }
-
-            button {
-                margin-top: 1.5rem;
-
-                &:hover {
-                    background-color: white;
-                    color: #27ab94;
-                }
-                
-            }
-
-            .jumbo-imgs {
-                width: 100%;
+            .jumbo-poster {
+                position: relative;
+                bottom: 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                z-index: 110;
+                width: 50%;
+                margin-top: 5rem;
+                border-radius: 20px;
+                box-shadow: 2px 10px 10px rgba(128, 128, 128, 0.288);
+                background-color: white;
 
-
-                .jumbo-poster {
-                    position: relative;
-                    bottom: 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 50%;
-                    background-color: white;
-                    border-radius: 20px;
-                    margin-top: 5rem;
-                    box-shadow: 2px 10px 10px rgba(128, 128, 128, 0.288);
-
-                    .preview {
-                        width: 95%;
-                        margin: 1rem 0;
-                    }
-
-                    .secondary-first {
-                        position: absolute;
-                        bottom: 0;
-                        // left: -350px;
-                        left: -50%;
-                        z-index: -100;
-                    }
-                    .secondary-second {
-                        position: absolute;
-                        bottom: -150px;
-                        right: -200px;
-                    }
-
-                    .yt-logo {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 100px;
-                    }
+                .preview {
+                    width: 95%;
+                    margin: 1rem 0;
                 }
 
-                // .secondary-first, .secondary-second {
-                //     position: absolute;
-                // }
-                // .secondary-first {
-                //     left: 80px;
-                //     bottom: 0;
-                // }
-                // .secondary-second {
-                //     right: 14%;
-                //     bottom: -140px;
-                // }
+                .secondary-first {
+                    position: absolute;
+                    bottom: 0;
+                    left: -50%;
+                    z-index: -100;
+                }
 
+                .secondary-second {
+                    position: absolute;
+                    bottom: -150px;
+                    right: -200px;
+                }
 
+                .yt-logo {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100px;
+                }
             }
         }
-        
     }
 </style>

@@ -64,12 +64,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/partials/_variables.scss";
 
     nav {
         display: flex;
+        justify-content: space-between;
         width: 100%;
         height: 80px;
-        justify-content: space-between;
         padding: 1rem;
 
         .logo {
@@ -77,6 +78,7 @@ export default {
             align-items: center;
             width: 20%;
             height: 100%;
+
             img {
                 width: 70%;
             }
@@ -88,7 +90,7 @@ export default {
             justify-content: space-between;
 
             .navbar__menu {
-            display: flex;
+                display: flex;
 
                 li {
                     position: relative;
@@ -101,12 +103,12 @@ export default {
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        width: 15px;
+                        height: 15px;
+                        border: 1px solid $portGore;
+                        border-radius: 50%;
                         background-color: white;
                         color: black;
-                        height: 15px;
-                        width: 15px;
-                        border-radius: 50%;
-                        border: 1px solid #1f2154;
 
                         span {
                             font-size: 0.6rem;
@@ -123,9 +125,9 @@ export default {
                         }
 
                         i {
-                            font-size: 0.5rem;
                             margin-left: 0.3rem;
                             vertical-align: middle;
+                            font-size: 0.5rem;
                         }
 
                         i.myArea {
@@ -133,7 +135,6 @@ export default {
                         }
                     }
                 }
-
             }
 
             .input-container {
@@ -141,10 +142,10 @@ export default {
                 justify-content: space-between;
                 align-items: center;
                 height: 40px;
-                background-color: white;
-                border-radius: 5px;
-                overflow: hidden;
                 padding: 0 8px;
+                border-radius: 5px;
+                background-color: white;
+                overflow: hidden;
 
                 input {
                     width: 100%;
@@ -154,12 +155,10 @@ export default {
                 }
 
                 .search {
-                    color: #1f9efb;
+                    color: $dodgerBlue;
                 }
             }
         }
-
-            
     }
 
 </style>

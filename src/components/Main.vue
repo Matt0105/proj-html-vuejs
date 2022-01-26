@@ -2,7 +2,7 @@
   <main>
       <div class="container">
 
-          <div class="motto-data">
+          <div  @mouseover="increaseNbr(myData)" class="motto-data">
               <div class="motto-container">
                   <p class="motto">Let passion and determination be the guide along the way and develop at your own pace that's comfortable.</p>
                   <h4>Fannie Moreno</h4>
@@ -20,20 +20,20 @@
               <div class="data-container">
                   <ul>
                       <li>
-                          <h2>1.926</h2>
-                          <p>finished sessions</p>
+                          <h2>{{myData[0].start}}</h2>
+                          <p>{{myData[0].title}}</p>
                       </li>
                       <li>
-                          <h2>3.092+</h2>
-                          <p>enrolled learners</p>
+                          <h2>{{myData[1].start}}+</h2>
+                          <p>{{myData[1].title}}</p>
                       </li>
                       <li>
-                          <h2>200</h2>
-                          <p>online instructors</p>
+                          <h2>{{myData[2].start}}</h2>
+                          <p>{{myData[2].title}}</p>
                       </li>
                       <li>
-                          <h2>100%</h2>
-                          <p>satisfaction rate</p>
+                          <h2>{{myData[3].start}}%</h2>
+                          <p>{{myData[3].title}}</p>
                       </li>
                   </ul>
               </div>
@@ -258,6 +258,32 @@ export default {
     name: "Main",
     data() {
         return {
+           
+            myData: [
+                {
+                    title: "finished sessions",
+                    number: 1926,
+                    start: 0
+                },
+                {
+                    title: "enrolled learners",
+                    number: 3092,
+                    start: 0
+
+                },
+                {
+                    title: "online instructors",
+                    number: 200,
+                    start: 0
+
+                },
+                {
+                    title: "satisfaction rate",
+                    number: 100,
+                    start: 0
+
+                },
+            ],
             courses: [
                 {
                     price: 40,
@@ -345,6 +371,40 @@ export default {
     methods: {
         getImg(value) {
             return require("../assets/images/" + value.src);
+        },
+
+        increaseNbr(value) {
+            
+            
+
+            setTimeout(() => {
+
+                value.forEach(el => {
+
+                    let timer = setInterval(() => {
+                        
+                        if(el.start < el.number) {
+                            
+                            if(el.number > 1000) {
+                                el.start += 10;
+                            }
+                            else {
+                                el.start++;
+                            }
+
+                            if(el.start > el.number) {
+                                el.start = el.number;
+                            }
+
+                        }
+
+                        if(el.start == el.number) {
+                            clearInterval(timer);
+                        }
+                    
+                    }, 5);
+                });
+            }, 500);
         }
     }
 }
@@ -352,12 +412,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_variables.scss";
 
     main {
-        background-image: url(../assets/images/background-pattern-grid-line.png);
         width: 100%;
         padding-top: 15rem;
-        // padding-bottom: 10rem;
+        background-image: url(../assets/images/background-pattern-grid-line.png);
     }
 
     .dot {
@@ -377,78 +437,54 @@ export default {
         width: 60px;
         height: 60px;
     }
-    
-    
-
-    h3.section-desc-title {
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-weight: 500;
-        color: #616865;
-        letter-spacing: 1px;
-    }
-
-    h2.section-title {
-        width: 60%;
-        margin-bottom: 2rem;
-        font-size: 3rem;
-        font-weight: 600;
-        line-height: 55px;
-
-        span {
-            color: #1fad96;
-            font-weight: 400;
-        }
-    }
-
+  
     .motto-data {
         width: 100%;
 
         .motto-container {
+            position: relative;
             width: 100%;
             text-align: center;
-            position: relative;
 
             .a {
                 top: 100px;
                 left: 50px;
-                background-color: #e65e1f;
+                background-color: $myOrange;
             }
             .b {
                 top: 60%;
                 right: 10%;
-                background-color: #2531e0;
+                background-color: $myBlue;
             }
             .c {
                 top: -25%;
                 left: 40%;
-                background-color: #7355e7;
+                background-color: $royalBlue;
             }
             .d {
                 top: -30%;
                 left: 100%;
-                background-color: #27ab94;
+                background-color: $jungleGreen;
             }
             .e {
                 top: 30%;
                 right: -10%;
-                background-color: #e25a6d;
+                background-color: $mandy;
             }
             .f {
                 top: 100%;
                 right: -10%;
-                border: 10px solid #f57e60;
+                border: 10px solid $salmon;
             }
             .g {
                 top: 90%;
                 left: -10%;
-                background-color: #e2a957;
+                background-color: $anzac;
             }
             .h {
                 top: -30%;
                 left: 0;
-                border: 7px solid #27ab94;
+                border: 7px solid $jungleGreen;
             }
             
             .motto {
@@ -468,11 +504,9 @@ export default {
                 color: #9da1aa;
                 font-size: 0.8rem;
             }
-            
         }
 
         .data-container {
-
             margin-top: 5rem;
 
             ul {
@@ -498,29 +532,27 @@ export default {
                     }
                 }
             }
-            
-
         }
     }
 
     .services-container {
         display: flex;
-        align-items: center;
         margin-top: 7rem;
+        align-items: center;
 
         .card-side {
-            width: 60%;
             display: flex;
+            width: 60%;
             
             .card {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 370px;
                 width: 290px;
+                height: 370px;
                 padding-top: 1rem;
-                background-color: white;
                 margin-bottom: 2rem;
+                background-color: white;
                 box-shadow: 1px 2px 20px rgba(0,0,0,0.1);
 
                 .card__desc {
@@ -529,21 +561,20 @@ export default {
                     h3 {
                         font-weight: 600;
                     }
+
                     p {
+                        margin-top: 0.6rem;
                         color: #616865;
                         font-size: 0.9rem;
                         line-height: 25px;
-                        margin-top: 0.6rem;
                     }
                 }
 
                 .card__img {
                     img {
                         display: block;
-                        // padding-top: 1rem;
                     }
                 }
-
             }
 
             .first-col {
@@ -554,6 +585,7 @@ export default {
                 position: relative;
                 top: 80px;
                 margin-bottom: 7rem;
+
                 .card {
                     align-items: center;
                 }
@@ -563,15 +595,24 @@ export default {
         .desc-side {
             padding-left: 4rem;
 
+            .section-title {
+                width: 60%;
+                text-align: left;
+            }
+
+            .section-desc-title {
+                text-align: left;
+            }
+
             li {
-                color: #616865;
                 margin: 0.8rem 0;
                 font-size: 0.9rem;
+                color: $corduroy;
 
                 i {
-                    color: #1fad96;
                     margin-right: 0.8rem;
                     font-size: 1.1rem;
+                    color: $mountainMeadow;
                 }
             }
 
@@ -579,33 +620,21 @@ export default {
                 margin-top: 2rem;
             }
         }
-
-        
     }
 
     .courses {
         width: 100%;
         padding-top: 5rem;
-        background-color: #e7eff7;
+        background-color: $ice;
 
         .container {
             text-align: center;
-            & h2 {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 4rem;
-            }
-            & h3 {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 1rem;
-            }   
 
             .main-btn {
-            
                 margin-top: 2.5rem;
                 margin-bottom: 4rem; 
                 padding: 1rem 4rem;
+
                 i {
                     vertical-align: middle;
                 }
@@ -629,13 +658,13 @@ export default {
                 }
 
                 .course-card__img {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     max-width: 150px;
                     max-height: 150px;
                     border-radius: 50%;
                     overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
 
                     img {
                         width: 170%;
@@ -651,8 +680,8 @@ export default {
                     margin-left: 2rem;
 
                     .dollars, .cents {
-                        color: #1fad96;
                         font-weight: 700;
+                        color: $mountainMeadow;
                     }
                     .dollars {
                         font-size: 1.5rem;
@@ -667,19 +696,15 @@ export default {
                         font-size: 1.1rem;
                         text-align: left;
                     }
-                    
                 }
             }
         }
-
-        
-
     }
 
     .item-info {
         margin-right: 1.5rem;
         font-size: 0.8rem;
-        color:#6c6c6c;
+        color:$doveGray;
     }
 
     .client {
@@ -688,86 +713,77 @@ export default {
         margin-bottom: 5rem;
         background-color: white;
 
-        .container {
-            & h2 {
-                text-align: center;
-                width: 100%;
-                margin-bottom: 4rem;
-            }
+        .testimonial {
+            display: flex;
+            align-items: center;
+            width: 100%;
 
-            .testimonial {
-                width: 100%;
+            .left-side-img {
+                position: relative;
                 display: flex;
-                // justify-content: space-around;
+                justify-content: center;
                 align-items: center;
+                width: 30%;
+                margin-right: 2rem;
 
-                .left-side-img {
-                    position: relative;
-                    width: 30%;
+                .testimonial__img {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    margin-right: 2rem;
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 50%;
+                    overflow: hidden;
 
-                    .testimonial__img {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 250px;
-                        height: 250px;
-                        border-radius: 50%;
-                        overflow: hidden;
-
-                        img {
-                            position: relative;
-                            width: 180%;
-                        }
-                    }
-
-                    .shape-img {
-                        position: absolute;
-                        bottom: -50px;
-                        right: 20%;
+                    img {
+                        position: relative;
+                        width: 180%;
                     }
                 }
 
-                
-
-                .testimonial__desc {
-                    width: 60%;
-                    .cit {
-                        font-size: 2rem;
-                    }
-
-                    h4 {
-                        text-transform: uppercase;
-                        margin-top: 2rem;
-                        margin-bottom: 1rem;
-                    }
-                    p:not(.cit) {
-                        color: #9da1aa;
-                        font-size: 0.8rem;
-                    }
-                    
+                .shape-img {
+                    position: absolute;
+                    bottom: -50px;
+                    right: 20%;
                 }
             }
 
-            .client-list {
-                ul {
-                    width: 100%;
-                    margin-top: 7rem;
+            
+
+            .testimonial__desc {
+                width: 60%;
+
+                .cit {
+                    font-size: 2rem;
+                }
+
+                h4 {
+                    margin-top: 2rem;
+                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                }
+
+                p:not(.cit) {
+                    font-size: 0.8rem;
+                    color: $grayChateau;
+                }
+            }
+        }
+
+        .client-list {
+
+            ul {
+                display: flex;
+                width: 100%;
+                margin-top: 7rem;
+
+                li {
                     display: flex;
-
-                    li {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: calc(100% / 6);
-
-                    }
+                    justify-content: center;
+                    align-items: center;
+                    width: calc(100% / 6);
                 }
             }
-             
         }
     }
 
@@ -775,55 +791,42 @@ export default {
         width: 100%;
         padding-top: 6rem;
         padding-bottom: 6rem;
-        background-color: #f6f3f6;
+        background-color: $hintRed;
 
-        .container {
-            text-align: center;
+        .blog-list {
+            width: 100%;
 
-            & .section-title {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 4rem;
-            }
-            & .section-desc-title {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
+            ul {
+                display: flex;
+                gap: 30px;
 
-            .blog-list {
-                width: 100%;
+                li {
+                    width: calc(100% / 3);
+                    cursor: pointer;
 
-                ul {
-                    display: flex;
-                    gap: 30px;
-                    li {
-                        width: calc(100% / 3);
+                    .blog-item {
+                        text-align: left;
 
-                        .blog-item {
+                        h2 {
+                            margin-bottom: 1.5rem;
                             text-align: left;
+                            font-weight: 600;
+                        }
 
-                            h2, h3 {
-                                text-align: left;
-                            }
-                            h2 {
-                                margin-bottom: 1.5rem;
-                                font-weight: 600;
-                            }
-                            h3 {
-                                margin-top: 1rem;
-                                margin-bottom: 0.5rem;
-                            }
-                            img {
-                                width: 100%;
-                                border-radius: 5px;
-                            }
+                        h3 {
+                            margin-top: 1rem;
+                            margin-bottom: 0.5rem;
+                            text-align: left;
+                        }
+
+                        img {
+                            width: 100%;
+                            border-radius: 5px;
                         }
                     }
                 }
             }
-
-        }   
+        }
     }
 
     .help {
@@ -831,101 +834,86 @@ export default {
         background: rgb(255,255,255);
         background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,243,246,1) 100%);
 
-        .container {
-            text-align: center;
+        ul {
+            display: flex;
+            gap: 20px;
 
-            & .section-title {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 4rem;
-            }
-            & .section-desc-title {
-                margin: auto;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
+            li {
+                width: calc(100% / 4);
 
-            ul {
-                display: flex;
-                gap: 20px;
-                li {
-                    width: calc(100% / 4);
+                .help-item-container {
+                    text-align: left;
 
-                    .help-item-container {
-                        text-align: left;
+                    h3 {
+                        margin: 0.5rem 0;
+                        font-weight: 500;
+                    }
 
-                        h3 {
-                            font-weight: 500;
-                            margin: 0.5rem 0;
-                        }
+                    p {
+                        width: 60%;
+                        font-size: 0.8rem;
+                        color: $doveGray;
+                    }
 
-                        p {
-                            width: 60%;
-                            font-size: 0.8rem;
-                            color: #6c6c6c
-                        }
-
-                        img {
-                            width: 50px;
-                        }
+                    img {
+                        width: 50px;
                     }
                 }
             }
+        }
 
-            .bottom-jumbo-container {
-                position: relative;
+        .bottom-jumbo-container {
+            position: relative;
 
-                .a-2 { 
-                    top: 100px;
-                    left: 50px;
-                    border: 7px solid #27ab94;
-                }
-                .b-2 {
-                    top: 80%;
-                    left: -10%;
-                    background-color: #e65e1f;
-                }
-                .c-2 { 
-                    top: 125%;
-                    right: -10%;
-                    background-color: #7355e7;
-                }
-                .d-2 { 
-                    top: 30%;
-                    left: 100%;
-                    background-color: #27ab94;
-                }
-                .e-2 { 
-                    top: 130%;
-                    left: -10%;
-                    background-color: #e2a957;
-                }
-                .f-2 { 
-                    top: 100%;
-                    right: 0%;
-                    background-color: #b45165;
-                }
-
-                .bottom-jumbo {
-                    width: 100%;
-                    margin-top: 7rem;
-                    transform: translateY(40px);
-                }
+            .a-2 { 
+                top: 100px;
+                left: 50px;
+                border: 7px solid $jungleGreen;
             }
-            
+            .b-2 {
+                top: 80%;
+                left: -10%;
+                background-color: $myOrange;
+            }
+            .c-2 { 
+                top: 125%;
+                right: -10%;
+                background-color: $royalBlue;
+            }
+            .d-2 { 
+                top: 30%;
+                left: 100%;
+                background-color: $jungleGreen;
+            }
+            .e-2 { 
+                top: 130%;
+                left: -10%;
+                background-color: $anzac;
+            }
+            .f-2 { 
+                top: 100%;
+                right: 0%;
+                background-color: $magenta;
+            }
+
+            .bottom-jumbo {
+                width: 100%;
+                margin-top: 7rem;
+                transform: translateY(40px);
+            }
         }
     }
 
     .cta {
-        background-color: white;
         padding-top: 7rem;
         padding-bottom: 6rem;
+        background-color: white;
+
         .container {
             text-align: center;
 
             & .section-title {
                 margin: auto;
-                text-align: center;
                 font-size: 1.2rem;
                 line-height: 1.5rem;
             }
@@ -938,7 +926,6 @@ export default {
             .main-btn {
                 padding: 1rem 4rem;
             }
-            
         }
     }
 
